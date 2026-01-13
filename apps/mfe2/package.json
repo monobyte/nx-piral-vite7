@@ -26,7 +26,7 @@
     }
   },
   "devDependencies": {
-    "@proj/shell": "workspace:*",
+    "@proj/shell": "file:../shell",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "piral-cli": "^1.8.3",
@@ -35,7 +35,7 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
-    "@proj/utils": "workspace:*"
+    "@proj/utils": "file:../../packages/utils"
   },
   "peerDependencies": {
     "@mantine/core": "^7.13.0",
