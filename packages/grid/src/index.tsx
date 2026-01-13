@@ -1,11 +1,5 @@
+import React from 'react';
 import { AgGridReact, AgGridReactProps } from 'ag-grid-react';
-import {
-  AllCommunityModule,
-  ModuleRegistry,
-  themeQuartz,
-  colorSchemeDarkBlue,
-  colorSchemeLightCold,
-} from 'ag-grid-community';
 
 // Import AG-Grid styles
 import 'ag-grid-community/styles/ag-grid.css';
@@ -13,16 +7,6 @@ import 'ag-grid-community/styles/ag-theme-quartz.css';
 
 // Import custom styles
 import './styles.css';
-
-// Register all Community features
-ModuleRegistry.registerModules([AllCommunityModule]);
-
-// Pre-configured themes
-export const gridThemes = {
-  light: themeQuartz.withPart(colorSchemeLightCold),
-  dark: themeQuartz.withPart(colorSchemeDarkBlue),
-  default: themeQuartz,
-};
 
 // Re-export types for consumers
 export type {
@@ -39,10 +23,17 @@ export type {
 
 export type { AgGridReactProps } from 'ag-grid-react';
 
+// Theme class names for AG-Grid v32
+export const gridThemes = {
+  light: 'ag-theme-quartz',
+  dark: 'ag-theme-quartz-dark',
+  default: 'ag-theme-quartz',
+} as const;
+
 // Pre-configured DataGrid component props
 export interface DataGridProps<TData = unknown> extends AgGridReactProps<TData> {
   theme?: keyof typeof gridThemes;
-  enableQuickFilter?: boolean;
+  containerClassName?: string;
 }
 
 /**
@@ -51,13 +42,14 @@ export interface DataGridProps<TData = unknown> extends AgGridReactProps<TData> 
  */
 export function DataGrid<TData = unknown>({
   theme = 'default',
-  enableQuickFilter = false,
+  containerClassName = '',
   ...props
-}: DataGridProps<TData>): JSX.Element {
+}: DataGridProps<TData>): React.ReactElement {
+  const themeClass = gridThemes[theme];
+
   return (
-    <div className="proj-grid-wrapper">
+    <div className={`proj-grid-wrapper ${themeClass} ${containerClassName}`.trim()}>
       <AgGridReact<TData>
-        theme={gridThemes[theme]}
         animateRows={true}
         enableCellTextSelection={true}
         suppressRowClickSelection={false}

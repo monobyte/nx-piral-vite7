@@ -6,22 +6,19 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "source": "src/index.ts",
+  "source": "src/index.tsx",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles": {
-      "import": "./dist/styles.css",
-      "require": "./dist/styles.css"
-    }
+    "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean && npm run build:styles",
+    "build": "tsup && npm run build:styles",
     "build:styles": "cp src/styles.css dist/styles.css",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "dev": "tsup --watch",
     "lint": "eslint src --ext .ts,.tsx"
   },
   "dependencies": {
