@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Piral App Shell with Mantine UI",
-  "app": "dist/release/index.html",
+  "app": "./index.html",
   "main": "dist/emulator/shell.js",
   "typings": "dist/emulator/shell.d.ts",
   "scripts": {
