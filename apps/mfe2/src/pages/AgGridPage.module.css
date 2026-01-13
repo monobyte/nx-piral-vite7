@@ -1,0 +1,20 @@
+.page {
+  padding: 24px 0;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin-bottom: 24px;
+}
+
+.card {
+  width: 100%;
+}
+
+.gridContainer {
+  height: 450px;
+  width: 100%;
+}

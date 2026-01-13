@@ -1,0 +1,24 @@
+.dashboard {
+  padding: 24px 0;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin-bottom: 32px;
+}
+
+.grid {
+  margin-top: 24px;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mantine-shadow-md);
+}

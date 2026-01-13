@@ -1,0 +1,59 @@
+{
+  "name": "@proj/mfe1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pilet with Mantine UI controls",
+  "main": "dist/index.js",
+  "source": "src/index.tsx",
+  "piral": {
+    "name": "@proj/shell",
+    "version": "1.0.0"
+  },
+  "scripts": {
+    "build": "pilet build --bundler vite7",
+    "serve": "pilet debug --bundler vite7 --port 1235",
+    "pack": "pilet pack",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "importmap": {
+    "imports": {
+      "react": "",
+      "react-dom": "",
+      "react-router-dom": "",
+      "@mantine/core": "",
+      "@mantine/hooks": "",
+      "@proj/grid": ""
+    }
+  },
+  "devDependencies": {
+    "@proj/shell": "workspace:*",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "piral-cli": "^1.8.3",
+    "piral-cli-vite7": "^1.1.0",
+    "typescript": "^5.4.5",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@proj/utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "@mantine/core": "^7.13.0",
+    "@mantine/hooks": "^7.13.0",
+    "@proj/grid": "*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": ["{projectRoot}/dist"]
+      },
+      "serve": {
+        "dependsOn": ["^build"]
+      }
+    }
+  }
+}
