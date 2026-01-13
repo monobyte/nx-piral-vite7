@@ -1,0 +1,75 @@
+{
+  "name": "@proj/shell",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Piral App Shell with Mantine UI",
+  "app": "dist/release/index.html",
+  "main": "dist/emulator/shell.js",
+  "typings": "dist/emulator/shell.d.ts",
+  "scripts": {
+    "build": "piral build --bundler vite7",
+    "build:emulator": "piral build --type emulator --bundler vite7",
+    "serve": "piral debug --bundler vite7 --port 1234",
+    "declaration": "piral declaration",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "importmap": {
+    "imports": {
+      "react": "",
+      "react-dom": "",
+      "react-router-dom": "",
+      "@mantine/core": "",
+      "@mantine/hooks": "",
+      "@proj/grid": ""
+    },
+    "inherit": ["piral-base"]
+  },
+  "pilets": {
+    "files": [],
+    "externals": [
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "@mantine/core",
+      "@mantine/hooks",
+      "@proj/grid"
+    ],
+    "devDependencies": {
+      "@proj/grid": "^1.0.0",
+      "@proj/utils": "^1.0.0"
+    }
+  },
+  "piral": {
+    "name": "@proj/shell",
+    "displayName": "Proj Shell",
+    "bundler": "vite7"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.13.0",
+    "@mantine/hooks": "^7.13.0",
+    "@proj/grid": "workspace:*",
+    "@proj/utils": "workspace:*",
+    "piral-core": "^1.8.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "piral-cli": "^1.8.3",
+    "piral-cli-vite7": "^1.1.0",
+    "typescript": "^5.4.5",
+    "vite": "^6.0.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "outputs": ["{projectRoot}/dist"]
+      },
+      "serve": {
+        "dependsOn": ["^build"]
+      }
+    }
+  }
+}

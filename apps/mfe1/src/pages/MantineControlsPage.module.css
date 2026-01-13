@@ -1,0 +1,49 @@
+.page {
+  padding: 24px 0;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin-bottom: 24px;
+}
+
+.notification {
+  margin-bottom: 24px;
+}
+
+.card {
+  max-width: 600px;
+}
+
+.input {
+  width: 100%;
+}
+
+.select {
+  width: 100%;
+}
+
+.switchGroup {
+  padding: 8px 0;
+}
+
+.sliderContainer {
+  padding: 16px 0;
+}
+
+.slider {
+  margin-top: 24px;
+}
+
+.checkbox {
+  margin-top: 8px;
+}
+
+.preview {
+  margin-top: 24px;
+  max-width: 600px;
+  background-color: var(--mantine-color-gray-0);
+}
