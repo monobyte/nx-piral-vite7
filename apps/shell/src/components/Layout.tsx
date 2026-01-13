@@ -1,4 +1,4 @@
-import { ComponentsState, Menu, Notifications, SwitchErrorInfo } from 'piral-core';
+import { ComponentsState, ExtensionSlot, SwitchErrorInfo } from 'piral-core';
 import {
   AppShell,
   Burger,
@@ -38,7 +38,7 @@ export const Layout: ComponentsState['Layout'] = ({ children }) => {
               Proj Monorepo
             </Text>
           </Group>
-          <Notifications />
+          <ExtensionSlot name="header-items" />
         </Group>
       </AppShell.Header>
 
@@ -50,7 +50,7 @@ export const Layout: ComponentsState['Layout'] = ({ children }) => {
           active={location.pathname === '/'}
           className={styles.navLink}
         />
-        <Menu type="general" />
+        <ExtensionSlot name="menu-items" />
       </AppShell.Navbar>
 
       <AppShell.Main className={styles.main}>
