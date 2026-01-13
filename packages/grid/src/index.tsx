@@ -31,7 +31,8 @@ export const gridThemes = {
 } as const;
 
 // Pre-configured DataGrid component props
-export interface DataGridProps<TData = unknown> extends AgGridReactProps<TData> {
+export interface DataGridProps<TData = unknown>
+  extends Omit<AgGridReactProps<TData>, 'theme'> {
   theme?: keyof typeof gridThemes;
   containerClassName?: string;
 }
